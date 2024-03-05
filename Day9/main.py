@@ -13,7 +13,7 @@ while True:
         with open("Day9/todos.txt",'w') as file:
             file.writelines(todos)
 
-    elif 'edit' in user_action:
+    elif 'edit' in user_action: 
         todo_index = int(user_action[5:].strip())
 
         with open("Day9/todos.txt",'r') as file:
@@ -33,7 +33,7 @@ while True:
         todos.pop(todo_index -1)
         with open("Day9/todos.txt",'w') as file:
             file.writelines(todos)
-            
+
     elif 'show' in user_action:
         with open("Day9/todos.txt",'r') as file:
             todos = file.readlines()
