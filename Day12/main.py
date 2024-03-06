@@ -15,4 +15,27 @@ while True:
         except (ValueError,IndexError):
             print(f"{user_action} is an invalid command. Try again")
             continue
-        
+
+    elif user_action.startswith('edit'):
+        try:
+            todo_index = int(user_action[5:])
+            todo = input("Enter ToDo to edit:  ")
+
+            todos = get_todos()
+            todos[todo_index-1] = todo
+        except (ValueError, IndexError):
+            print(f"{user_action} is an invalid ommand. Try again")
+            continue
+    
+    elif user_action.startswith('complete'):
+        try:
+            pass
+        except (ValueError, IndexError):
+            print(f"{user_action} is an invalid command. Try again")
+            continue
+
+    elif
+
+
+
+
