@@ -1,29 +1,27 @@
-def get_todos(path_arg):
-    with open(path_arg,'r') as file:
+def get_todos(path = "Day13/todos.txt"):
+    with open(path,'r') as file:
         todos_local = file.readlines()
         return todos_local
 
 
-def write_todos(path_arg, todos_arg):
+def write_todos(todos_arg, path = "Day13/todos.txt"):
     with open(path,'w') as file:
         file.writelines(todos_arg)
 
 
 while True:
     user_action = input("Type add, edit, complete, show or exit: ")
-
-    path = "Day13/todos.txt"
-
+    
     if user_action.startswith('add'):
         todo = user_action[3:].title()
 
-        todos = get_todos(path)
+        todos = get_todos()
         todos.append(todo + '\n')
 
-        write_todos(path, todos)
+        write_todos(todos)
 
     elif user_action.startswith('show'):
-        todos = get_todos(path)
+        todos = get_todos()
         for index, item in enumerate(todos):
             print(f"{index+1}.{item.strip()}")
 
@@ -31,13 +29,13 @@ while True:
         try:
             todo_index = int(user_action[5:].strip())
 
-            todos = get_todos(path)
+            todos = get_todos()
 
             todo = input("Enter the ToDo: ").strip().title()
 
             todos[todo_index-1] = todo + '\n'
 
-            write_todos(path, todos)
+            write_todos(todos)
         except:
             print("Invlaid input, try again.")
 
@@ -45,13 +43,13 @@ while True:
         try:
             todo_index = int(user_action[8:].strip())
 
-            todos = get_todos(path)
+            todos = get_todos()
             todos.pop(todo_index-1)
 
-            write_todos(path, todos)
+            write_todos(todos)
         except:
             print("Invaid input, try again.")
-            
+
     elif user_action.startswith('exit'):
         break
 
